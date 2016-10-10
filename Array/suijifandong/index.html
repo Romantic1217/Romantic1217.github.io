@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: black;
+			}
+			ul,p{
+				padding: 0;
+				margin: 0;
+			}
+			#box{
+				width: 900px;
+				height: 600px;
+				border: 10px solid #ccc;
+				margin: 0 auto;
+			}
+			li{
+				list-style-type: none;
+				width: 290px;
+				height: 200px;
+				float: left;
+				margin: 0 5px;
+				position: relative;
+				overflow: hidden;
+			}
+			img{
+				width: 290px;
+				height: 200px;
+				vertical-align: top;
+			}	
+			p{
+				position: absolute;
+				top: 0;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<p>
+						<img src="img1/1.jpg"/>
+						<img src="img1/7.jpg"/>
+						<img src="img1/a1.jpg"/>
+						<img src="img1/2.jpg"/>
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img1/2.jpg"/>
+						<img src="img1/a1.jpg"/>
+						<img src="img1/p4.jpg"/>
+						<img src="img1/a3.jpg"/>
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img1/3.jpg"/>
+						<img src="img1/a2.jpg"/>
+						<img src="img1/a3.jpg"/>
+						<img src="img1/p2.jpg"/>
+						<img src="img1/8.jpg"/>
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img1/4.jpg"/>
+						<img src="img1/3.jpg"/>
+						<img src="img1/p5.jpg"/>
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img1/p5.jpg"/>
+						<img src="img1/5.jpg"/>
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img1/8.jpg"/>
+						<img src="img1/1.jpg"/>
+						<img src="img1/pic4.jpg"/>
+						<img src="img1/5.jpg"/>
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img1/9.jpg"/>
+						<img src="img1/p5.jpg"/>
+						<img src="img1/3.jpg"/>
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img1/a1.jpg"/>
+						<img src="img1/5.jpg"/>
+						<img src="img1/9.jpg"/>
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img1/5.jpg"/>
+						<img src="img1/1.jpg"/>
+						<img src="img1/a3.jpg"/>
+						<img src="img1/9.jpg"/>
+					</p>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/mQuery.js"></script>
+		<script type="text/javascript" src="js/tween.js"></script>
+		<script type="text/javascript" src="js/mTween.js"></script>
+			
+		
+		<script type="text/javascript">
+			
+			var ps = $('p');
+			var imgs = $('img');
+			
+			function fn(obj){
+				var he = parseFloat(getComputedStyle(imgs[0]).height);
+				var len = obj.getElementsByTagName('img').length;
+				setTimeout(function(){
+					obj.num += obj.n;
+					//num走到当前IMG的最后一个是让n变成-1.
+					if( obj.num == len-1 ){
+						obj.n = -1;
+					}
+					//当num等于-1时让n等于1倒回来从走
+					if( obj.num == 0 ){
+						obj.n = 1;
+					}
+					mTween(obj,'top',-obj.num*he,300,'linear',function(){
+						fn(obj);
+					});
+				},Math.random()*2000+1000)
+			}
+			//循环所有的li
+			for(var i=0;i<ps.length;i++){
+				//每个p给一个自定义属性 num = 0;
+				ps[i].num = 0;
+				//每个p给一个自定义属性 n = 1;
+				ps[i].n = 1;
+				fn(ps[i]);
+			}
+		</script>
+	</body>
+</html>

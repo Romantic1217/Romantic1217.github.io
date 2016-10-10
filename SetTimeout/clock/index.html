@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<script type="text/javascript" src="js/mTween.js"></script>
+		<script type="text/javascript" src="js/tween.js"></script>
+		<style type="text/css">
+			#list{
+				width: 400px;
+				height: 70px;
+				
+			}
+			li{
+				float: left;
+				width: 50px;
+				height: 70px;
+				position: relative;
+				overflow: hidden;
+			}
+			p{
+				position: absolute;
+				top: 0;
+			}
+			
+			img{
+				vertical-align: top;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="list">
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<img src="img/c.jpg" alt="" />
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<img src="img/c.jpg" alt="" />
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			//获取到时间的img
+			var aImg = getSelector('p img');
+			var aImg2 = getSelector('li>img');
+			var aP = getTagName('p');
+			var num = 0;
+			//获取到当前时间
+			var date = new Date();
+			var h = date.getHours();//获取到小时
+			var m = date.getMinutes();//获取到分钟
+			var s = date.getSeconds();//获取到秒数
+			//把得到的时间数字做成string;
+			var time = totwo(h) + totwo(m) + totwo(s);
+			for( var i=0;i<aP.length;i++ ){
+				//初始化
+				getTagName('img',aP[i])[0].src = 'img/'+time[i]+'.jpg';
+				fn2(i);
+			}
+			function fn2(num){
+				setInterval( fn,1000 );
+				function fn(){
+					date = new Date();
+					h = date.getHours();//获取到小时
+					m = date.getMinutes();//获取到分钟
+					s = date.getSeconds();//获取到秒数
+					//把得到的时间数字做成string;
+					time = totwo(h) + totwo(m) + totwo(s);
+					for ( var i=0;i<aImg2.length;i++ ){
+						aImg2[i].src = 'img/c.jpg';
+					}
+					setTimeout(function(){
+						for ( var i=0;i<aImg2.length;i++ ){
+						aImg2[i].src = 'img/b.jpg';
+					}
+					},500 )
+					getTagName('img',aP[num])[1].src = 'img/'+time[num]+'.jpg';
+					if ( getTagName('img',aP[num])[1].src !=getTagName('img',aP[num])[0].src ){
+						mTween(aP[num],'top',-70,300,'linear',function(){
+							getTagName('img',aP[num])[0].src = 'img/'+time[num]+'.jpg';
+							aP[num].style.top = '0';
+						});
+					}
+					return time;
+				}
+			}
+			
+			
+			
+			//判断数字如果小于10在数字前面加个string0，大于就正常;
+			function totwo(n){
+				return n<10? '0'+n:''+n;
+			}
+			function getSelector(selector){
+				return document.querySelectorAll(selector);
+			}
+			function getTagName(tagName,ele){
+				return (ele||document).getElementsByTagName(tagName);
+			}
+			
+		</script>
+	</body>
+</html>
+

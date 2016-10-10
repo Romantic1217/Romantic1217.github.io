@@ -1,0 +1,11 @@
+* {margin: 0; padding: 0;}
+h2 {font-size: 12px; font-weight: normal; height: 30px; line-height: 30px; width: 133px; padding-left: 15px;}
+.active {border: 1px solid #999; height: 28px; line-height: 28px; background: #ccc; cursor: default;}
+ul {width: 150px; background: #99F; border: 1px solid #888;}
+li {position: relative; list-style: none; float: left;}
+li.active h2 {border: 1px solid #999; height: 28px; line-height: 28px; background: #ccc; cursor: default;}
+li.active span {border-color: #ccc #ccc #ccc #333;}
+#menu {position: absolute; display: none;}
+#menu ul {position: absolute; top: 0; left: 145px; display: none;}
+span {display: block; width: 0; height: 0; border-width: 4px; border-style: solid; border-color: #99F #99F #99F #333; font-size: 0; line-height: 0; float: right; position: absolute; top: 10px; right: 15px;}
+li h2.active span{border-color: #ccc #ccc #ccc #333;}

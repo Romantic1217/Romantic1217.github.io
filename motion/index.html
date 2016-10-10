@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 60px;
+				height: 60px;
+				background: red;
+				position: absolute;
+				top: 0;
+				border-radius: 50%;
+				font: 30px/60px arial;
+				color: white;
+				font-weight: bold;
+				text-align: center;
+				margin: 20px 0 0 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="js/mTween.js"></script>
+		<script type="text/javascript" src="js/tween.js"></script>
+		<script type="text/javascript">
+			var str = '';
+			var lon = 20;
+			for(var i=0;i<lon;i++){
+				str += '<div style="left:'+ i*65 +'px;">'+ i +'</div>';
+			}
+			document.body.innerHTML = str;
+			var divs = document.getElementsByTagName('div');
+			var onOff = true; // 控制点击次数
+			var num = 0;      // 代表当前的div的个数
+			var timer = null; // 保存定时器
+			var target = 400; // 目标点
+			document.onclick = function(){
+				if(!onOff){//当onOff为false时停止运行
+					return;
+				}
+				onOff = false;
+				//开始定时器每次让一个div向下运动
+				timer = setInterval(function(){
+					mTween(divs[num],'top',target,1000,'elasticOut',function(){
+						num++;
+						//当n等于div的长度时 说明所有的div都运动完了
+						if(num == lon){
+							num = 0;
+							onOff = true;
+//							if(target == 400){
+//								target = 0;
+//							}else{
+//								target = 400;
+//							}
+							//和判断条件一个意思
+							target = target == 400?0:400; 
+						}
+					})
+					num++;
+					if(num >= lon){
+						num = 0;
+						clearInterval(timer);
+					}
+				},50)
+			}
+		</script>
+	</body>
+</html>

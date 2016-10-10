@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<script type="text/javascript" src="js/mTween.js"></script>
+		<script type="text/javascript" src="js/tween.js"></script>
+		<style type="text/css">
+			#list{
+				width: 400px;
+				height: 70px;
+				
+			}
+			li{
+				float: left;
+				width: 50px;
+				height: 70px;
+				position: relative;
+				overflow: hidden;
+			}
+			p{
+				position: absolute;
+				width: 50px;
+				height: 70px;
+				top: 0;
+				left: 0;
+			}
+			
+			img{
+				width: 100%;
+				height: 100%;
+				vertical-align: top;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="list">
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<img src="img/c.jpg" alt="" />
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<img src="img/c.jpg" alt="" />
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+				<li>
+					<p>
+						<img src="img/0.jpg" alt="" />
+					</p>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var aImg = getSelectors('li>img');
+			var aP = getSelectors('li p');
+			var aImgP = getSelectors('p img');
+			var arr = ['img/0.jpg','img/1.jpg','img/2.jpg','img/3.jpg',
+			'img/4.jpg','img/5.jpg','img/6.jpg','img/7.jpg','img/8.jpg',
+			'img/9.jpg'];
+			
+			fn();
+			var time3 = '';
+			
+			setInterval(function(){
+				var date = new Date();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				var time2 = toTwo(h) + toTwo(m) + toTwo(s);
+				for( var i=0;i<time2.length;i++ ){
+					if(time2[i]!=time3[i]){
+						overTurn(i);
+					}
+				}
+				setTimeout(function(){
+					for( var i=0;i<aImg.length;i++ ){
+						aImg[i].src = 'img/b.jpg';
+					}
+				},500);
+			},1000)
+			function overTurn(n){
+				mTween(aP[n],'width',0,400,'linear',function(){
+					mTween(aP[n],'width',50,400,'linear')
+				})
+				mTween(aP[n],'left',25,400,'linear',function(){
+					mTween(aP[n],'left',0,400,'linear')
+				})
+			}
+			setInterval(function(){
+				fn();
+				time3 = fn();
+			},1000);
+			
+			function fn(){
+				var date = new Date();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				var time = toTwo(h) + toTwo(m) + toTwo(s);
+				for( var i=0;i<aP.length;i++ ){
+					aImgP[i].src = arr[time[i]];
+				}
+				for( var i=0;i<aImg.length;i++ ){
+					aImg[i].src = 'img/c.jpg';
+				}
+				return time;
+			}
+			function toTwo(n){
+				return n<10?'0'+n:''+n;
+			}
+			function getSelectors(selectors){
+				return document.querySelectorAll(selectors);
+			}
+			function getSelector(selector){
+				return document.querySelector(selector);
+			}
+			function getTagName(tagName,ele){
+				return (ele||document).getElementsByTagName(tagName);
+			}
+			function $(id){
+				return document.getElementById(id);
+			}
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,14 @@
+body,dl,dd,p,h1,h2,h3,h4,h5,h6,a{margin:0;padding:0;font-size: 12px;font-family: arial;}
+ol,ul,a{margin:0;padding:0;list-style:none;}
+a{text-decoration:none;font-size: 12px; color: #3c3c3c;}
+img{border:none;vertical-align: top;}
+table{border-collapse: collapse;}
+th,td{padding:0;}
+form{margin:0;}
+input{padding:0;margin:0;}
+option{padding:0;}
+textarea{resize: none;}
+em{font-style: normal;}
+.red{
+	color: #d85d40;
+}

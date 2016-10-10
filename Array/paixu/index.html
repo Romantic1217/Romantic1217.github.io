@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片排序</title>
+		<style type="text/css">
+			body{
+				background: #ccc;
+			}
+			ul,p{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style: none;
+				margin: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			#top{
+				width: 200px;
+				margin: 10px auto;
+			}
+			#top a{
+				display: inline-block;
+				width: 90px;
+				background: red;
+				font: 20px/35px "微软雅黑";
+				color: white;
+				text-align: center;
+				float: left;
+			}
+			#top a:hover{
+				background: blue;
+				color: red;
+			}
+			div:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			#top a:nth-of-type(2){
+				margin-left: 10px;
+			}
+			ul{
+				margin: 0 auto;
+				width: 1200px;
+				padding: 10px;
+			}
+			li{
+				float: left;
+				width: 260px;
+				height: 240px;
+				margin: 15px 3px;
+				border: 10px solid #fff;
+				background: red;
+			}
+			li p{
+				background-color: red;
+				font-size: 16px;
+				line-height: 30px;
+				color: #fff;
+				text-align: center;
+				font-weight: bold;
+				padding: 0 10px;
+			}
+			img{
+				vertical-align: top;
+				width: 100%;
+				height: 100%;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="top">
+			<a href="javascript:;">从小到大</a>
+			<a href="javascript:;">打乱顺序</a>
+		</div>
+		<ul>
+			<li><img src="img/0.jpg"/><p>1-加布里埃尔</p></li>
+			<li><img src="img/1.jpg"/><p>2-南安普顿海滩</p></li>
+			<li><img src="img/6.jpg"/><p>3-吸血鬼日记</p></li>
+			<li><img src="img/2.jpg"/><p>4-Revenge</p></li>
+			<li><img src="img/4.jpg"/><p>5-Model</p></li>
+			<li><img src="img/5.jpg"/><p>6-Victoria</p></li>
+			<li><img src="img/7.jpg"/><p>7-萨默海尔德</p></li>
+			<li><img src="img/3.jpg"/><p>8-加布里埃尔</p></li>
+		</ul>	
+		<script>
+			var as = document.getElementsByTagName('a');
+			var lis = document.getElementsByTagName('li');
+			var ul = document.getElementsByTagName('ul')[0];
+			var eles = Array.from(lis);
+			var onOff = true;
+			
+			as[0].onclick = function(){
+				str = '';
+				//声明li变成else进行排序
+				eles.sort(function(a,b){
+					//a b 代表从小到大排序  找到a b 下的p
+					var text1 = a.getElementsByTagName('p')[0];
+					var text2 = b.getElementsByTagName('p')[0];
+					if(onOff){
+						as[0].innerHTML = '从大到小';
+						//返回b的内容-a的内容 从大到小排序
+						return text2.innerHTML.charAt()-
+						text1.innerHTML.charAt();
+					}else{
+						as[0].innerHTML = '从小到大';
+						//返回a的内容-b的内容 从小到大排序
+						return text1.innerHTML.charAt()-
+						text2.innerHTML.charAt();
+					}
+				});
+				for(var i=0;i<lis.length;i++){
+					str += '<li>'+eles[i].innerHTML+'</li>';
+				}
+				ul.innerHTML = str;
+				onOff = !onOff
+			}
+			as[1].onclick = function(){
+				str = '';
+				//li排序
+				eles.sort(function(){
+					//返回随机数 50%机率
+					return Math.random()-0.5;
+				})
+				for(var i=0;i<lis.length;i++){
+					str += '<li>'+eles[i].innerHTML+'</li>';
+				}
+				ul.innerHTML = str;
+				console.log(ul.innerHTML)
+			}
+		</script>
+	</body>
+</html>
