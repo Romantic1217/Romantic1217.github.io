@@ -362,7 +362,7 @@ body{
     transform:rotate(0deg);
 }
 .section3_cont li:hover .section3_text{
-    height: 120px;
+    height: 140px;
     padding: 10px;
 }
 .section3_cont .section3_text{
@@ -386,7 +386,6 @@ body{
     clear: both;
     color: #fff;
 }
-
 .section4{
     width: 100%;
     height: 550px;
