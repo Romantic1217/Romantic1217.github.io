@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 800px;
+				height: 500px;
+				background: #0000FF;
+				margin: 0px auto;
+				position: relative;
+			}
+			img{
+				width: 800px;
+				height: 500px;
+			}
+			#btn1{
+				width: 200px;
+				height: 30px;
+				position:absolute;
+				top: 200px;
+				left: 200px;
+			}
+			#btn2{
+				height: 30px;
+				position:absolute;
+				top: 200px;
+				left: 420px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<input type="text" id="btn1"/>
+			<input type="button" id="btn2" value="输入"/>
+		</div>
+		<script type="text/javascript">
+			/*
+			qq：
+				1、qq号中不能包涵空格
+				2、不能有小数
+				3、第一位不能是0
+				4、5-10数
+			*/
+			var inps = document.getElementsByTagName('input');
+			
+			
+			
+			inps[1].onclick = function(){
+				var value = inps[0].value;
+				//输入号码，给一个返回值
+				if(value == ''){
+					alert('请输入账号！！');
+					return;
+				}
+				for(var i=0;i<value.length;i++){
+					//输入了空格每个i都有一格
+					if(value[i] == ' '){
+						alert('输入了空格');
+						return;
+					}
+					// 输入的有小数点
+					if(isNaN(value[i])){
+						alert('您输入的账号有误！！！')
+						return;
+					}
+					// 输入的有小数点
+//					if(value[i] == '.'){
+//						alert('输入了小数点！！！')
+//						return;
+//					}
+					//第一位不能为0
+					if(value[i] == '0'){
+						alert('第一位不能为0！！!')
+						return 0;			
+					}
+					//输入内容不能大于五位、小于10位！
+					if(value.length<'5'||value.length>'10'){
+						alert('输入内容不能小于五位！！！')
+						return;
+					}
+					alert('输入正确！！')
+					return;
+				}
+			};
+		</script>
+	</body>
+</html>

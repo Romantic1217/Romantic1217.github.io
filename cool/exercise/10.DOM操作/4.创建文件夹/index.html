@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,ul,p{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style-type: none;
+			}
+			#div{
+				height: 50px;
+				text-align: center;
+			}
+			#box{ 
+				float: left;
+				width: 120px; 
+				height: 30px; 
+				border: 5px solid #ccc; 
+				font: 15px/30px "微软雅黑";
+				color: green;
+				font-weight: bold;
+				cursor: pointer;
+				margin: 10px 0 0 10px;
+			}
+			#box:hover{
+				background: red;
+				color: #fff;
+			}
+			#box span{
+				margin-left: 8px;
+			}
+			li{
+				width: 120px;
+				height: 140px;
+				float: left;
+				position: relative;
+				margin: 20px;
+				cursor: pointer;
+				/*transition: 1s;*/
+				/*background: rgba(0,0,0,.2);*/
+			}
+			li img{
+				width: 60px;
+				height: 80px;
+				position: absolute;
+				top: 30px;
+				left: 30px;
+			}
+			input{
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				margin: 0;
+				display: none;
+				cursor: pointer;
+			}
+			li span{
+				font: 14px/20px "微软雅黑";
+				font-weight: bold;
+				float: left;
+				position: absolute;
+				bottom: 8px;
+				left: 30px;
+			}
+			#div1{
+				float: left;
+				width: 120px; 
+				height: 30px; 
+				border: 5px solid #ccc; 
+				font: 15px/30px "微软雅黑";
+				color: green;
+				font-weight: bold;
+				cursor: pointer;
+				text-align: center;
+				margin: 10px 0 0 30px;
+			}
+			#div1:hover{
+				background: red;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div">
+			<div id="box">
+				<span><img src="img/2.png"/></span>
+				新建文件夹
+			</div>
+			<div id="div1">批量删除</div>
+		</div>
+		<ul id="list">
+			<!--<li>
+				<input type="checkbox" />
+				<img src="img/1.png"/>
+				<span>新建文件夹</span>
+			</li>-->
+		</ul>
+		
+		<script type="text/javascript">
+			
+			var box = document.getElementById('box');
+			var list = document.getElementById('list');
+			var div1 = document.getElementById('div1');
+			var onOff = true;
+			
+			box.onclick = function(){
+				var lis = document.createElement('li');
+				var inps = document.createElement('input');
+				var img = document.createElement('img');
+				var spans = document.createElement('span');
+				
+				lis.appendChild(inps);
+				lis.appendChild(img);
+				lis.appendChild(spans);
+				list.appendChild(lis);
+				inps.setAttribute('type','checkbox');//设置对象对应属性的属性值
+				img.setAttribute('src','img/3.png');//设置对象对应属性的属性值
+				spans.innerHTML = '新建文件夹';
+				lis.onmouseover = function(){
+					lis.style.background = 'rgba(0,0,0,.2)';
+					inps.style.display = 'block';
+				}
+				inps.onclick = function(){
+					if( inps.checked ){
+						lis.style.background='rgba(0,0,0,.2)';
+						inps.style.display = 'block';
+						inps.checked = false;
+					}else{
+						lis.style.background = 'rgba(0,0,0,.2)';
+						inps.style.display = 'block';
+						inps.checked = true;
+					}
+				}
+				lis.onclick = function(){
+					if( !inps.checked ){
+						lis.style.background='rgba(0,0,0,.2)';
+						inps.style.display = 'block';
+						inps.checked = true;
+					}else{
+						lis.style.background = 'rgba(0,0,0,.2)';
+						inps.style.display = 'block';
+						inps.checked = false;
+					}
+				}
+				lis.onmouseout = function(){
+					if( inps.checked ){
+						lis.style.background = 'rgba(0,0,0,.2)';
+						inps.style.display = 'block';
+					}else{
+						lis.style.background = '';
+						inps.style.display = 'none';
+					}
+				}
+			}
+			var divs = document.getElementById('div1');
+			var li = list.getElementsByTagName('li');
+			var inp = list.getElementsByTagName('input');
+			divs.onclick = function(){
+				for( var i=0;i<li.length;i++ ){
+					if ( inp[i].checked ) {
+						li[i].style.background = 'rgba(0,0,0,.2)';
+						inp[i].display = 'block';
+						inp[i].checked = true;
+						list.removeChild(inp[i].parentNode);
+						i--;
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>

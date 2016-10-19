@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			#div1{
+				width: 289px;
+				height: 594px;
+				background: url(img/0.jpg);
+				margin: 0 auto;
+				position: relative;
+			}
+			#div2{
+				width: 237px;
+				height: 370px;
+				background: #f1f1f1;
+				position: absolute;
+				top: 87px;
+				left: 26px;
+				overflow: auto;
+			}
+			#div3{
+				width: 237px;
+				height: 42px;
+				background: #ccc;
+				position: absolute;
+				left: 26px;
+				bottom: 87px;
+				padding-top: 7px;
+			}
+			img{
+				width: 30px;
+				height: 34px;
+				border: 1px solid #000;
+				border-radius: 5px;
+				margin:0px 5px;
+			}
+			#text1{
+				width: 140px;
+				height: 34px;
+				border: 1px solid #000;
+				border-radius: 5px;
+			}
+			#one{
+				font-size: 15px;
+				font-family: "agency fb";
+				color: #000;
+				font-weight: bold;
+			}
+			p{
+				width: 100%;
+				margin-bottom: 5px;
+			}
+			p:after{
+				clear: both;
+				content: "";
+				display: block;
+			}
+			.left{
+				float: left;
+			}
+			.right{
+				float: right;
+			}
+			.left img,.left span{
+				float: left;
+			}
+			.right img,.right span{
+				float: right;
+			}
+			p span{
+				max-width: 170px;
+				line-height: 34px;
+				border: 1px solid #000;
+				border-radius: 5px;
+				word-break: break-all;
+				word-wrap: break-word;
+			}
+		</style>
+		<script type="text/javascript">
+			
+			window.onload = function (){
+				
+				var div2 = document.getElementById('div2');
+				var img = document.getElementById('img');
+				var text1 = document.getElementById('text1');
+				var one = document.getElementById('one');
+				
+				var onOff = true;
+				
+				img.onclick = function (){
+					if (onOff){
+						img.src = 'img/pic2.jpg';
+						onOff = false;
+					}else{
+						img.src = 'img/pic1.jpg';
+						onOff = true;
+					}
+				};
+				one.onclick = function (){
+					if ( text1.value == ''){
+						alert( '嘿...说点什么吧!!!');
+					}
+					else {
+						if (onOff){
+							div2.innerHTML = '<p class="left"><img id="img" src="img/pic1.jpg"><span>' + text1.value + '</span></p>'+ div2.innerHTML;
+							text1.value = '';
+						}else{
+							div2.innerHTML = '<p class="right"><img id="img" src="img/pic2.jpg"><span>'+ text1.value +'</span></p>' + div2.innerHTML;
+							text1.value = '';
+						}
+					};
+				};
+			};
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<!--<p class="left"><img src="img/pic1.jpg"/><span>说点什么吧</span></p>
+				<p class="right"><img src="img/pic2.jpg"/><span>我就不说</span></p>-->
+			</div>
+			<div id="div3">
+				<img id="img" src="img/pic1.jpg"/>
+				<input type="text" id="text1" value="" />
+				<a id="one" href="#">确认</a>
+			</div>
+		</div>
+	</body>
+</html>

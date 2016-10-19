@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			a{	
+				text-decoration: none;
+				font: 20px/30px "微软雅黑";
+				text-align: center;
+			}
+			#box{
+				width: 800px;
+				height: 500px;
+				border: 10px solid red;
+				margin: 40px auto;
+			}
+			#table span{
+				display: inline-block;
+				width: 150px;
+				font: 20px/50px "微软雅黑";
+				margin-left: 5px;
+				position: relative;
+				cursor: pointer;
+			}
+			#table span i{
+				font-style: normal;
+				color:red;
+				position: absolute;
+				top:0;
+				right: 0;
+				font-size: 30px;
+				font-weight: bold;
+			}
+			#content div{
+				font-size: 30px;
+				line-height: 450px;
+				text-align: center;
+				display: none;
+				background-color: blue;
+			}
+			#content .show{
+				display: block;
+			}
+			#table .active{
+				background-color: yellow;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="javascript:;">Document1</a>
+		<a href="javascript:;">Document2</a>
+		<a href="javascript:;">Document3</a>
+		<a href="javascript:;">Document4</a>
+		<a href="javascript:;">Document5</a>
+		<div id="box">
+			<div id="table">
+			</div>
+			<div id="content">
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*
+			  需求：
+			 	1，创建选项卡，添加到box里面
+			 	2，实现选项卡功能，点击生成内容
+			 	3，删除当前选项卡
+			 */
+			var as = document.getElementsByTagName('a');
+			var table = document.getElementById('table');
+			var  content = document.getElementById('content');
+			
+			for( var i=0;i<as.length;i++ ){
+				as[i].onclick = function(){
+					if(this.obj)return;
+					//点击之后创建的选项卡
+					var btns = document.createElement('span');//点击a之后生成span
+					var divs = document.createElement('div');
+					var the = this;
+					//创建的span的内容等于a的内容加i
+					btns.innerHTML = this.innerHTML + '<i>X</i>';
+					divs.innerHTML = 'this is the content of' + this.innerHTML;
+					//创建选项卡实现
+					table.appendChild(btns);
+					content.appendChild(divs);
+					//当前的选项卡为真的时候，说明已经创建了，不能继续点击创建
+					this.obj = true;
+				
+					//点击X的时候删除当前的选项卡
+					btns.children[0].onclick = function(){
+						//删除当前的btns
+						table.removeChild(btns);
+						content.removeChild(divs);
+						//判断是不是当前的焦点，如果是，那么删除之后就找一个新的焦点。
+						if(btns.className=='active'&&table.children.length>0){
+							table.children[0].className = 'active';
+							content.children[0].className = 'show';
+						}
+						btns.a = true;
+						//如果删除了这个选项卡就相当于打开了这个开关，可以再次生成
+						the.obj = false;
+					}
+					//选项卡的实现
+					btns.onclick = function(){
+						if(btns.a)return;//不太明白什么意思
+						//清除所有的div
+						for( var i=0;i<table.children.length;i++ ){
+							table.children[i].className = '';
+							content.children[i].className = '';
+						}
+						//添加当前的div
+						this.className = 'active';
+						divs.className = 'show';
+					}
+					//清除所有的div
+					for( var i=0;i<table.children.length;i++ ){
+						table.children[i].className = '';
+						content.children[i].className = '';
+					}
+					btns.className = 'active';
+					divs.className = 'show';
+				}
+			}
+			
+		</script>
+	</body>
+</html>

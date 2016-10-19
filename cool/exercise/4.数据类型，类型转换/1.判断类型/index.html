@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>1、找到arr里所有的数字：</p>
+		<p>2、找到可以转成数字的：</p>
+		<p>3、把转成数字以后，最大值判断出来：</p>
+		<p>4、把NaN所在的位置找出来：</p>
+		<script type="text/javascript">
+			
+		/*
+		根据结果写出运行代码：
+			1、找到arr里所有的数字： -98765， 34， -2， 0， 5
+			2、找到可以转成数字的：'100px'，-98765，34，-2，0，'300'，23.45元，5
+			3、把转成数字以后，最大值判断出来：300
+			4、把NaN所在的位置找出来：1,14,17,19
+		 */
+			var ps = document.getElementsByTagName('p');
+			var arr=['100px','abc'-6,[],-98765,34,-2,0,'300', ,function(){alert(1);},null,document,[],true,'200px'-30,'23.45元',5,Number('abc'),function(){alert(3);},'xyz'-90];
+			var a = 0; //  当arr[i] > a 时 a = arr[i] 
+						// 当arr[i] < a 时 a = a
+			//1、找到数组中的数字：-98765， 34， -2， 0， 5
+			for(var i=0;i<arr.length;i++ ){
+				//找出字符类型为number的；且不为NaN
+				if(typeof(arr[i]) == 'number' && isNaN(arr[i]) == false){
+				
+					ps[0].innerHTML += arr[i] + ' ';
+//					console.log(arr[i])
+				}
+			//2、找到可以转成数字的：'100px'，-98765，34，-2，0，'300'，23.45元，5
+//				console.log(parseFloat(arr[i]))
+				//
+				if(isNaN(parseFloat(arr[i])) == false){
+					ps[1].innerHTML += arr[i] + ' ';
+			//3、把转成数字以后，判断出最大值：300
+					if(arr[i]>a){
+						a=arr[i];
+					}
+				}
+			//4、把NaN所在的位置找出来：1,14,17,19
+			//找出字符类型为number  、且为NaN
+				if(typeof(arr[i]) == 'number' && isNaN(arr[i]) == true){
+					
+					ps[3].innerHTML += i + ' ' ;//找出数字位置 i
+				}
+				
+			}
+			//3、最大值在全部循环完之后显示。
+			ps[2].innerHTML += a;
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+footer{
+	width: 100%;
+}
+.foot{
+	width: 100%;
+	height: 14px;
+	text-align: center;
+}
+.foot a{
+	font-size: 12px;
+	color: #999999;
+	border-right: 1px solid #bb99bb;
+	line-height: 12px;
+	padding: 0 6px;
+	text-align: center;
+}
+ .foot .b1{
+	padding-right: 23px;
+	padding-left: 0;
+	position: relative;
+}
+.foot .b2{
+	color: #ff5555;
+}
+.foot .b3{
+	border-right: 0;
+}
+.b1 i{
+	width: 7px;
+	height: 4px;
+	background: url(../img/plan/1floor/sprite-1.jpg) no-repeat -12px -55px;
+	position: absolute;
+	top: 4px;
+	right: 8px;
+	margin-left: 6px 0 0 8px;
+}
+.foot2{
+	width: 100%;
+	height: 46px;
+	text-align: center;
+	line-height: 46px;
+	font-size:12px;
+	color:#999;
+	text-align: center;
+	position: relative;
+}
+.foot2 span{
+	padding-right: 8px;
+}
+.foot3{
+	padding-left: 19px;
+	padding-right: 0;
+}
+.foot2 i{
+	width: 16px;
+	height: 15px;
+	background: url(../img/plan/1floor/sprite-1.jpg) no-repeat 0 -275px;
+	position: absolute;
+	top: 13px;
+	right: 448px;
+}
+.foot4{
+	width: 100%;
+	height: 30px;
+	text-align: center;
+}
+.foot4 a{
+	padding-right: 10px;
+}

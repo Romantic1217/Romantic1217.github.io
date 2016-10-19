@@ -1,0 +1,634 @@
+body,h1{
+	margin: 0;
+}
+html{
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	height: 100%;
+	overflow: auto;
+}
+section{
+	width: 100%;
+}
+header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1.425rem;
+	background: #fe5400;
+	padding: 0.4rem 0 0 0.225rem;
+	
+}
+header .logo{
+	width: 1.35rem;
+	height: 1rem;
+	background: url(../img/h1-1.png) no-repeat ;
+	background-size: 100%;
+}
+#bd{
+	width: 13.825rem;
+	height: 1.25rem;
+	background: #b52500;
+	border: none;
+	border-radius: 0.175rem;
+	margin: -0.125rem 0.325rem 0.3rem 0.275rem;
+	text-align: center;
+	font-size: 0.6rem;
+	color: #fff;
+	position: relative;
+}
+.top1{
+	width: 0.675rem;
+	height: 0.675rem;
+	background: url(../img/radiu-1.png) no-repeat;
+	background-size: 100%;
+	position: absolute;
+	left: 6.05rem;
+	top: 0.575rem;
+	margin-right: 0.325rem;
+}
+.pic{
+	width: 100%;
+	padding-top: 1.825rem;
+}
+.pic1 img{
+	width: 16rem;
+	height: 5rem;
+}
+.nav{
+	height: 6.1rem;
+	padding: 0.5rem 1.25rem 0.3rem 1.075rem;
+	border-bottom: 0.025rem solid #e8e8e8;
+}
+.Tao{
+	margin-right: -2.5rem;
+}
+.Tao li{
+	float: left;
+	width: 2.35rem;
+	height: 2.85rem;
+	text-align: center;
+	margin-right:1.5rem;
+}
+.Tao1 img{
+	width: 1.925rem;
+	height: 1.925rem;
+}
+.Tao1 span{
+	font-size:0.575rem;
+	color: #666666;
+	font-family: "微软雅黑";
+	line-height: 0.925rem;
+}
+.Tao2{
+	margin-top: 0.4rem;
+}
+.TD{
+	height: 1.55rem;
+}
+.td1 img{
+	float: left;
+	width: 2.5rem;
+	height: 0.725rem;
+	padding: 0.376rem 0.475rem 0 0.5rem;
+}
+.td1 span{
+	float: left;
+	width: 0.025rem;
+	height: 1.2rem;
+	border-right:0.025rem solid #e8e8e8;
+	margin-top: 0.15rem;
+}
+.td2{
+	height: 0.8rem;
+}
+.td3{
+	font-size: 0.65rem;
+	color: #d91521;
+	font-family: "微软雅黑";
+	border: 0.025rem solid #d81422;
+	border-radius: 0.2rem;
+	padding: 0 0.125rem;
+	margin: 0.35rem 0.625rem 0.2rem 0.45rem;
+}
+.td4{
+	font-size: 0.7rem;
+	color: #363636;
+	font-family: "微软雅黑";
+	margin-top: 0.35rem;
+}
+.HT{
+	height: 7.675rem;
+	border-top: 0.5rem solid #eeeeee;
+}
+.HT1{
+	width: 6.4rem;
+	height: 7.675rem;
+	border-right: 0.025rem solid #e8e8e8;
+}
+.HT2{
+	height: 0.95rem;
+	margin: 0.35rem 0 0 0.325rem;
+}
+.HT2 img{
+	float: left;
+	width: 0.75rem;
+	height: 0.725rem;
+	margin-top: 0.125rem;
+}
+.HT2 span{
+	float: left;
+	font-size: 0.7rem;
+	color: #f9212c;
+	font-family: "微软雅黑";
+	margin-left: 0.125rem;
+}
+.HT1 p{
+	height: 0.725rem;
+	font-size: 0.475rem;
+	color: #6e6e6e;
+	line-height: 0.725rem;
+	margin-left: 0.325rem;
+}
+.fi{
+	height: 1.3rem;
+	text-align: center;
+	margin-left: 0.625rem;
+}
+.fi b{
+	float: left;
+	font-size: 0.375rem;
+	line-height: 1.3rem;
+	padding: 0 0.015rem;
+}
+.f1,.f2,.f3{
+	float: left;
+	width: 0.85rem;
+	height: 0.85rem;
+	background: #333333;
+	border-radius: 0.025rem;
+	font-size: 0.375rem;
+	color: #fdfdfd;
+	line-height: 0.85rem;
+	margin-top: 0.225rem;
+}
+.bike img{
+	width: 4.825rem;
+	height: 3.95rem;
+	margin: 0.025rem 0.975rem 0.375rem 0.6rem;
+}
+.ri_top{
+	width: 9.575rem;
+	height: 7.675rem;
+}
+.go{
+	width: 9.575rem;
+	height: 3.075rem;
+	border-bottom: 0.025rem solid #f3f3f3;
+}
+.go1{
+	margin: 0.65rem 0 0 0.65rem;
+}
+.go img{
+	width: 0.8rem;
+	height: 0.8rem;
+}
+.go2{
+	font-size: 0.775rem;
+	color: #0eb4da;
+}
+.go3{
+	font-size: 0.5rem;
+	color: #b0b0b0;
+	height: 0.9rem;
+	line-height: 0.9rem;
+}
+.tx img{
+	width: 1.825rem;
+	height: 2.425rem;
+	margin: 0.35rem 1.5rem 0.3rem 1.75rem;
+}
+.bot_le{
+	width: 9.575rem;
+	height: 4.575rem;
+}
+.ag{
+	width: 4.75rem;
+	height: 4.575rem;
+	border-right: 0.025rem solid #e8e8e8;
+}
+.ag1{
+	display: block;
+	height: 0.775rem;
+	font-size: 0.65rem;
+	color: #fe3674;
+	line-height: 0.775rem;
+	padding-top: 0.325rem;
+	margin-left: 0.625rem;
+}
+.ag2{
+	display: block;
+	font-size: 0.5rem;
+	color: #afafaf;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	margin-left: 0.675rem;
+}
+.ag3{
+	margin: 0 1.075rem 0.025rem 1.275rem;
+}
+.floor1{
+	width: 100%;
+	height: 11.65rem;
+	border-bottom: 0.05rem solid #d9d9d9;
+}
+.tt{
+	width: 100%;
+	height: 1.5rem;  
+	border-top: 0.025rem solid #EEEEEE;
+	background: #eeeeee;
+}
+.tt2,.tt3,.ff1,.ff2{
+	width: 6.1rem;
+	height: 0.025rem;
+	border-top: 0.025rem solid #cccccc;
+	margin: 0.775rem 0 0 0.25rem;
+}
+.tt a{
+	float: left;
+	font-size: 0.65rem;
+	color: #fd1c08;
+	font-family: "微软雅黑";
+	height: 0.85rem;
+	line-height: 0.85rem;
+	margin-top: 0.35rem;
+}
+.tt img,.head img{
+	width: 0.85rem;
+	height: 0.85rem;
+	margin: 0 0 0 0.25rem;
+}
+.tt3{
+	margin-right: 0.25rem;
+}
+.con{
+	width: 100%;
+	height: 10.075rem;
+}
+.con1{
+	width: 100%;
+	height: 5.025rem;
+	border-bottom: 0.025rem solid #e8e8e8;
+}
+.con2 img{
+	width: 6.4rem;
+	height: 5.025;
+	border-right: 0.025rem solid #e8e8e8;	
+}
+.con3 img{
+	width: 3.175rem;
+	height: 5.025rem;
+	border-right: 0.025rem solid #e8e8e8;
+}
+.floor2{
+	width: 100%;
+	height: 10.75rem;
+	border-bottom: 0.025rem solid #d8d8d8;
+}
+.head{
+	width: 100%;
+	height: 1.525rem;
+	background: #eeeeee;
+}
+.head a{
+	float: left;
+	font-size: 0.65rem;
+	color: #6b29a4;
+	font-family: "微软雅黑";
+	height: 0.85rem;
+	line-height: 0.85rem;
+	margin-top: 0.35rem;
+}
+.ff2{
+	margin-right: 0.25rem;
+}
+.hot{
+	width: 100%;
+	height: 9.2rem;
+}
+.hot1{
+	width: 100%;
+	height: 4.2rem;
+	border-bottom: 0.025rem solid #f5f5f5;
+}
+.hot2 img{
+	float: left;
+	width: 9.55rem;
+	height: 4.15rem;
+	border-right: 0.025rem solid #e8e8e8;
+	border-bottom: 0.025rem solid #efefef;
+}
+.hot3 img{
+	float: left;
+	width: 6.425rem;
+	height: 4.15rem;
+}
+.hot4{
+	width: 100%;
+	height: 5rem;
+}
+.hot4 li {
+	float: left;
+	width: 3.175rem;
+	height: 5rem;
+}
+.hot4 img{
+	width: 3.175rem;
+	height: 5rem;
+	border-right: 0.025rem solid #e8e8e8;
+}
+.hot4 .hot5{
+	border-left: 0.025rem solid #e8e8e8;
+	border-right: none;
+}
+.foot a{
+	color: #da9e08;
+}
+.floor5{
+	width: 100%;
+	height: 3.2rem;
+}
+.floor5 img{
+	width: 100%;
+	height: 3.2rem;
+}
+.floor6{
+	height: 16.975rem;
+}
+.header{
+	height: 1.5rem;
+	background: #eeeeee;
+	border-top: 0.025rem solid #eeeeee;
+}
+.line1{
+	float: left;
+	width: 5.875rem;
+	height: 0.05rem;
+	border-top: 0.05rem solid #dddddd;
+	margin: 0.75rem 0 0 0.25rem;
+}
+.line2 img{
+	width: 0.85rem;
+	height: 0.85rem;
+}
+.header .line2{
+	float: left;
+	font-size: 0.65rem;
+	color: #49b016;
+	font-family: "微软雅黑";
+	margin: 0.35rem 0.1rem 0.325rem 0.25rem;	
+}
+.line3{
+	float: left;
+	width: 3.925rem;
+	height: 0.05rem;
+	border-top: 0.05rem solid #dddddd;
+	margin-top: 0.775rem;
+}
+.line4{
+	font-size: 0.55rem;
+	color: #666666;r
+	height: 1.525rem;
+	line-height: 1.525rem;
+	margin: 0.175rem 0 0 0.1rem;
+}
+.line4 img{
+	width: 0.225rem;
+	height: 0.4rem;
+	margin: 0.575rem 0 0 0.1rem;
+}
+.line5{
+	width: 100%;
+	height: 15.375rem;
+	border-top: 0.025rem solid #e8e8e8;
+}
+.line6{
+	width: 100%;
+	height: 6.15rem;
+	border-bottom: 0.025rem solid /*#fafafa*/red;
+}
+.line7 img{
+	width: 7.975rem;
+	height: 6.15rem;
+	border-right: 0.025rem solid red;
+}
+.line8 img{
+	width: 8rem;
+	height: 6.15rem;
+}
+.body{
+	width: 100%;
+	height: 9.2rem;
+}
+.there{
+	height: 4.575rem;
+	border-bottom: 0.05rem solid #f7f7f7;
+}
+.there1 img{
+	width: 7.975rem;
+	height: 4.575rem;
+	border-right: 0.025rem solid #e8e8e8;
+}
+.there2 img{
+	width: 3.825rem;
+	height: 4.575rem;
+	border-right: 0.025rem solid #e8e8e8;
+}
+.there3 img{
+	width: 4.15rem;
+	height: 4.575rem;
+} 
+.floor7{
+	height: 3.075rem;
+}
+.floor7 img{
+	width: 16rem;
+	height: 3.075rem;
+}
+.floor8{
+	height: 8.55rem;
+}
+.bottom{
+	height: 1.525rem;
+	border-top: 0.025rem solid #c4d8d7;
+	border-bottom: 0.05rem solid #f4f4f4;
+}
+.bottom h3{
+	font-size: 0.75rem;
+	height: 1.525rem;
+	line-height: 1.525rem;
+	border-left: 0.25rem solid #ff9b43;
+	padding-left: 0.325rem;
+}
+.bottom a{
+	font-size: 0.65rem;
+	color: #696969;
+	height: 1.525rem;
+	line-height: 1.525rem;
+	/*padding-right: 1.225rem;*/
+}
+.bottom img{
+	width: 0.65rem;
+	height: 0.65rem;
+	margin: 0.45rem 0.375rem 0.45rem 0.175rem;
+}
+.okc{
+	width: 100%;
+	height: 6.375rem;
+}
+.okc1{
+	width: 7.9rem;
+	height: 6.375rem;
+	
+}
+.okc1 img{
+	width: 7.6rem;
+	height: 5.1rem;
+	padding: 0.25rem 0 0.225rem 0.3rem;
+}
+.okc1 span{
+	font-size: 0.65rem;
+	color: #242424;
+	font-family: "微软雅黑";
+	margin-left: 0.375rem;
+}
+.okc2{
+	width: 6.4rem;
+	height: 5.1rem;
+}
+.okc2 img{
+	width: 6.4rem;
+	height: 5.1rem;
+	margin: 0.25;
+	padding: 0.225rem 0.7rem 0.225rem 1rem;
+}
+.okc2 span{
+	font-size: 0.65rem;
+	color: #242424;
+	font-family: "微软雅黑";
+	margin-left: 0.275rem;
+	
+}
+.okc3{
+	height: 0.575rem;
+}
+.okc3 img{
+	width: 2.5rem;
+	height: 0.4rem;
+	padding-right: 0.15rem;
+}
+.floor9{
+	height: 23.175rem;
+	padding-bottom: 2.1rem;
+}
+.hand{
+	width: 100%;
+	height: 1.4rem;
+	background: #eeeeee;
+	border-top: 0.025rem solid #eeeeee;
+	font-size: 0.6rem;
+	color: #6d717a;
+	line-height: 1.4rem;
+	text-align: center;
+	position: relative;
+}
+.hand0{
+	position: absolute;
+	left: 0;
+	top: 0.65rem;
+	float: left;
+	width: 16rem;
+	height: 0.05rem;
+	border-top: 0.05rem solid #e7e7e7;
+}
+.hand1{
+	height: 21.75rem;
+}
+.hand1 li{
+	float: left;
+	width: 7.9rem;
+	height: 10.675rem;
+	border-right: 0.1rem solid #eeeeee;
+	border-bottom: 0.2rem solid #eeeeee;
+}
+.hand1 img{
+	width: 7.9rem;
+	height: 7rem;
+	border-bottom: 0.025rem solid #f3efec;
+}
+.ou{
+	margin-top: 0.275rem;
+	padding:0 0.525rem;
+}
+.oo{
+	font-size: 0.575rem;
+	color: #6a6a6a;
+	line-height: 0.9rem;
+}
+.ou p{
+	font-size: 0.6rem;
+	color: #fd5001;
+	line-height: 1.15rem;
+}
+footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2.1rem;
+	border-top: 0.025rem solid #e7e7e7;
+	background: #ffffff;
+	padding-left: 0.95rem;
+	
+}
+.fot{
+	margin-right: -1.125rem;
+}
+	
+.fot li{
+	float: left;
+	text-align: center;
+	margin-top: 0.4rem;
+	margin-right: 1.925rem;
+}
+.fot0 img{
+	width: 1.05rem;
+	height: 0.975rem;
+}
+.fot1 span{
+	display: block;
+	font-size: 0.45rem;
+	color: #6e777e;
+	line-height: 0.6rem;
+	
+}
+.fot2 img{
+	width: 0.975rem;
+	height: 0.9rem;
+}
+.fot3 img{
+	width: 0.975rem;
+	height: 1rem;
+}
+.fot4 img{
+	width: 1rem;
+	height: 0.975rem;
+}
+.fot5 img{
+	width: 0.85rem;
+	height: 0.25rem;
+	margin-top: 0.4rem;
+}

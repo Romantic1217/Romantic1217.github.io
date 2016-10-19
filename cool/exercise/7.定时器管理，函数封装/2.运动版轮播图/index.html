@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 600px;
+				height: 500px;
+				border: 10px solid #ccc;
+				background: greenyellow;
+				margin: 0 auto;
+				position: relative;
+			}
+			img{
+				width: 450px;
+				height: 460px;
+				margin: 20px 75px 20px;
+			}
+			ul{
+				padding: 0;
+				margin: 0;
+				position: absolute;
+				top: 20px;
+			}
+			ul:nth-of-type(1){
+				left: 10px;
+			}
+			ul:nth-of-type(2){
+				right: 10px;
+			}
+			li{
+				list-style: none;
+				width: 50px;
+				height: 30px;
+				border: 2px solid red;
+				border-radius: 6px;
+				margin-top: 22px;
+				cursor: pointer;
+				text-align: center;
+				font: 16px/30px arial;
+				font-weight: bold;
+				color: green;
+			}
+			ul li:hover{
+				background: red;
+				color: white;
+				border: 2px solid white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="list">
+				<li>荷兰</li>
+				<li>德国</li>
+				<li>希腊</li>
+				<li>法国</li>
+				<li>意大利</li>
+				<li>奥地利</li>
+				<li>匈牙利</li>
+				<li>普鲁士</li>
+			</ul>
+			<ul id="list1">
+				<li>求伯君</li>
+				<li>雷小军</li>
+				<li>马化腾</li>
+				<li>李彦宏</li>
+				<li>Leo</li>
+				<li>陈朝阳</li>
+				<li>马小云</li>
+				<li>柳传志</li>
+			</ul>
+			<img src="img/1.jpg" alt="" />
+		</div>
+		<script type="text/javascript">
+			
+			var div = document.getElementsByTagName('div')[0];
+			var us = document.getElementsByTagName('ul');
+			var lis = document.getElementsByTagName('li');
+			var imgs = document.getElementsByTagName('img')[0];
+			var arr = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/6.jpg'];
+			var num = 0;
+			var timer = null;
+			lis[0].style.background = 'red';
+			for(var i=0;i<lis.length;i++){
+				lis[i].index = i;
+				lis[i].onmouseover = function(){
+					for(var i=0;i<lis.length;i++){
+						//清除移入每一li的背景色
+						lis[i].style.background = '';
+					}
+					lis[this.index].style.background = 'red';
+					imgs.src = arr[this.index%arr.length];
+					//把当前移入的li赋值给num、等于定时器下次在当前位置走
+					num = this.index;
+				}
+			}
+			function out(){
+				timer =	setInterval(function(){
+					for(var i=0;i<lis.length;i++){
+						lis[i].style.background = '';
+					}
+				if(num<lis.length/2){
+					num++;
+					if(num>=lis.length/2){
+						num = lis.length-1;
+					}
+				}else{
+					num--;
+					if(num<lis.length/2){
+						num=0;
+					}
+				}
+					lis[num].style.background = 'red';
+					//图片的位置，等于数组当前的图片除以数组长度
+					imgs.src = arr[num%arr.length];
+				},1000)
+			}
+			out();
+			//鼠标移入box清除循环定时器
+			box.onmouseover = function(){
+				clearInterval(timer);
+			}
+			//鼠标移出继续执行代码
+			box.onmouseout = function(){
+				out();
+			}
+		</script>
+	</body>
+</html>

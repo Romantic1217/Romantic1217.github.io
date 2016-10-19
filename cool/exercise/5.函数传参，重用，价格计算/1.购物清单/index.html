@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Go、购物去了！！！</title>
+		<style type="text/css">
+			ul{
+				margin: 0;
+				padding: 0;
+			}
+			#list{
+				width: 500px;
+				border: 5px solid #ccc;
+				margin: 0 auto;
+			}
+			li{
+				list-style: none;
+				height: 50px;
+				margin-top: 20px;
+				line-height: 50px;
+				padding-left: 20px;
+				background: greenyellow;
+			}
+			#list li:nth-of-type(1){
+				margin-top: 0;
+			}
+			input{
+				cursor: pointer;
+			}
+			#box{
+				height: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				货物单价：<em>22.5</em>￥
+				购物总计：<span>0</span>￥
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				货物单价：<em>20</em>￥
+				购物总计：<span>0</span>￥
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				货物单价：<em>11</em>￥
+				购物总计：<span>0</span>￥
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				货物单价：<em>13.2</em>￥
+				购物总计：<span>0</span>￥
+			</li>
+			<li>
+				<input type="button" value="-" />
+				<strong>0</strong>
+				<input type="button" value="+" />
+				货物单价：<em>33.5</em>￥
+				购物总计：<span>0</span>￥
+			</li>
+		</ul>
+		<div id="box">
+			<p>购物合计：<span>0</span>件</p>
+			<p>共花费了：<span>0</span>￥</p>
+			<p>最贵的东西单价是：<span>0</span>￥</p>
+		</div>
+		<script>
+			/*
+				条件：
+					1、html的样式写下来、通过父级找到子元素。
+					2、内容用函数包起来。
+					3、找到每组不一样的值、通过传参实现。
+			 */
+			var ul1 = document.getElementById('list');
+			var lis = ul1.getElementsByTagName('li');
+			var div = document.getElementById('box');
+			
+			//每个li循环一次
+			for(var i=0;i<lis.length;i++){
+				fnTab(lis[i]);
+			}
+			
+			function fnTab(Li){
+				var btns = Li.getElementsByTagName('input');
+				var strongs = Li.getElementsByTagName('strong')[0];
+				var spans = Li.getElementsByTagName('span')[0];
+				var ems = Li.getElementsByTagName('em')[0];
+				//声明一个变量找到strong里面的内容
+				var st1 = Number(strongs.innerHTML); // '' 字符串形式出现，变成数字
+				//找到em里的内容  
+				var st2 = parseFloat(ems.innerHTML);    // '' 字符串形式出现,转为小数
+				//点击按钮+时、里面的数据增加
+				btns[1].onclick = function (){
+					st1 ++;
+					//strong的内容增加==[]
+					strongs.innerHTML = st1; 
+					//合计的数字等于strong的值乘以 ems的值
+					spans.innerHTML = st1*st2;
+					Tab();
+				}
+				//点击按钮-时、里面的数据在原先的值上递减
+				btns[0].onclick = function (){
+					//strong的内容递减
+					st1 --;
+					//判断小于0的时候不能继续减
+					if(st1 < 0){
+						st1 = 0;
+					}
+					strongs.innerHTML = st1;
+					spans.innerHTML = st1*st2;
+					Tab();
+				}
+				//封装div的函数、获取到div的子元素
+				function Tab(){
+					var sp = div.getElementsByTagName('span');
+					var life = ul1.getElementsByTagName('strong');
+					var top = ul1.getElementsByTagName('span');
+					var bottom = ul1.getElementsByTagName('em');
+					var life1 = 0;
+					var top1 = 0;
+					var bottom1 = 0;
+					//循环
+					for(var i=0;i<lis.length;i++){
+						//strong 获取到的字符串转换成数字等于变量 life1
+						life1 += Number(life[i].innerHTML); 
+						//ul里面的货物单价em转换成小数 等于变量 top1
+						top1 += parseFloat(top[i].innerHTML);
+						//判断strong的内容如果大于0，和em转换成的的内容要小于当前循环之后的内容
+						if(Number(life[i].innerHTML) > 0 && bottom1 < parseFloat(bottom[i].innerHTML)){
+							bottom1 = parseFloat(bottom[i].innerHTML);	
+						}
+					}
+					sp[0].innerHTML = life1;
+					sp[1].innerHTML = top1;
+					sp[2].innerHTML = bottom1;
+				}
+			}
+		</script>
+	</body>
+</html>
