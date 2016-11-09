@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		body{
+			margin: 0;
+		}
+		#wrap{
+			width: 100%;
+			height:661px;
+			background: #99CCCC;
+			position: relative;
+			transform-style: preserve-3d;/*3D*/
+			perspective: 800px;/*景深*/
+		}
+		img{
+			border: none;
+			vertical-align: top;
+		}
+		#wrap img{
+			width: 300px;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -150px;
+			margin-top: -100px;
+			transition: 0.8s ease-in-out;
+		}
+	</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<img src="img/hurryup.jpg"/>
+			<img src="img/lost.jpg"/>
+			<img src="img/watch.jpg"/>
+			<img src="img/city.jpg"/>
+			<img src="img/sony.jpg"/>
+			<img src="img/great.jpg"/>
+			<img src="img/build.jpg"/>
+		</div>
+		<script type="text/javascript">
+			
+			var imgs = document.getElementsByTagName('img');
+			var num = 3;
+			var target;
+			var onOff = true;
+			//打开页面的状态
+			setTimeout(function(){
+				fn(num);
+			},200);
+			for (var i = 0; i < imgs.length; i++) {
+				imgs[i].index = i;
+				//点击切换图片
+				imgs[i].onclick = function(){
+					if ( !onOff ) {
+						return;
+					}
+					onOff = false;
+					//alert(this.index)//当前的下标
+					target = this.index;
+					if( target > num ){//当目标点大于3时，
+						if( target - num <= 3 ){
+							Next();
+						}else{
+							Prev();
+						}
+					}else{
+						if( target + 7 - num <= 3 ){
+							Next();
+						}else{
+							Prev();
+						}
+					}
+				}
+			}
+			function Next(){//该函数右边的图片向左切换
+				num ++;
+				if( num > 6 ){
+					num = 0;
+				}
+				fn(num);
+				//如果等于当前的目标点就停止切换
+				if( num == target ){//运动完成
+					onOff = true;
+					return;
+				}
+				setTimeout(function(){
+					Next();
+				},800);
+			}
+			function Prev(){//该函数右边的图片向左切换
+				num --;
+				if( num < 0 ){
+					num = 6;
+				}
+				fn(num);
+				if( num == target ){//如果等于当前的目标点就停止切换
+					onOff = true;
+					return;
+				}
+				setTimeout(function(){
+					Prev();
+				},800);
+			}
+			//0 1 2   3   4 5 6 
+			//封装一个函数,初始位置
+			function fn(n){
+				for (var i = 0; i < 3; i++) {
+					//往左边-
+					var Left = n - 1 - i;
+					//当左边的数小于0的时候 当前左边的数+7
+					//5 6 0   1   2 3 4 
+					if( Left < 0 ){
+						Left = Left + 7;
+					}
+					//translateX("+(-150*(i+1))+"px) 计算出每一个img的位置
+					imgs[Left].style.transform = "translateX("+(-150*(i+1))+"px) translateZ("+(200-i*100)+"px) rotateY(30deg)";
+					//往右边+i
+					var Right = n + 1 + i;
+					//当右边的数大于6的时候  当前的数字-1，对应其下标
+					//2 3 4   5   6 0 1
+					if( Right > 6 ){
+						Right = Right - 7;
+					}
+					imgs[Right].style.transform = "translateX("+(150*(i+1))+"px) translateZ("+(200-i*100)+"px) rotateY(-30deg)";
+				}
+					imgs[n].style.transform = "translateZ(300px)";
+			}
+		</script>
+	</body>
+</html>

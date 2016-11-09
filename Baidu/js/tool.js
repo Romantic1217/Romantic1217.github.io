@@ -89,7 +89,6 @@ function getPos(node,pos){
 function css(obj,attr){
     return parseFloat(getComputedStyle(obj)[attr]);
 }
-
 function distinguish(that){
     switch(that.mark){
             case 0 :
