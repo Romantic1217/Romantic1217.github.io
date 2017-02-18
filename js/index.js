@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2016/4/19.
- */
 
 $(document).ready(function() {
     //引用：鼠标滚轮mousewheel插件
@@ -29,7 +26,7 @@ $(document).ready(function() {
         };
         /*页面滑动*/
         function run(){
-            layer.attr("class","section_wrap").addClass(function() { return "put_section_"+i;});
+            layer.attr("class","section_wrap").addClass(function(){ return "put_section_"+i;});
             if(i>=1){
                 header.attr("class","header header_on").addClass(function() { return "put_header_"+i;});
                 nav1.eq(i).addClass('on').siblings("a").removeClass('on');
